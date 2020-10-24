@@ -26,3 +26,6 @@ jobs:
         run: |
           echo Has token
           echo "$HAS_TOKEN"
+      - name: if token or label
+        if: contains(github.event.pull_request.body, 'token') || contains(github.event.pull_request.labels.*.name, 'new clubhouse story')
+        run: echo It has either a token or label
