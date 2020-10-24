@@ -17,12 +17,12 @@ jobs:
 
       - name: show body
         env:
-          BODY: ${{ github.event.body }}
+          BODY: ${{ github.event.pull_request.body }}
         run: echo "$BODY"
         
       - name: show contains token
         env:
-          HAS_TOKEN: ${{ contains(github.event.body, 'token') }}
+          HAS_TOKEN: ${{ contains(github.event.pull_request.body, 'token') }}
         run: |
           echo Has token
           echo "$HAS_TOKEN"
