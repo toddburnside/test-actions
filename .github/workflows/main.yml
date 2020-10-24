@@ -26,6 +26,12 @@ jobs:
         run: |
           echo Has token
           echo "$HAS_TOKEN"
+          
+      - name: show has label
+        env:
+          HAS_LABEL: ${{ contains(github.event.pull_request.labels.*.name, 'new clubhouse story') }}
+        run: echo "$HAS_LABEL"
+        
       - name: if token or label
         if: contains(github.event.pull_request.body, '[ch-new]') || contains(github.event.pull_request.labels.*.name, 'new clubhouse story')
         run: echo It has either a token or label
