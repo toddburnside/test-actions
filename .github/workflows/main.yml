@@ -22,7 +22,7 @@ jobs:
         
       - name: show contains token
         env:
-          HAS_TOKEN: ${{ contains(github.event.pull_request.body, 'token') }}
+          HAS_TOKEN: ${{ contains(github.event.pull_request.body, '[ch-new]') }}
         run: |
           echo Has token
           echo "$HAS_TOKEN"
